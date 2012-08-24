@@ -1,21 +1,49 @@
 var https = require('https');
 var libxmljs = require("libxmljs");
+var DateFormat = require('dateformatjs').DateFormat;
 
-var EveApi = function(callback, keyID, vCode){
- 
+var EveApi = function(keyID, vCode){
+
   var optionsget = {
 	host : 'api.eveonline.com',
 	port : 443,
 	path : '/account/AccountStatus.xml.aspx?keyID='+keyID+'&vCode='+vCode, // the rest of the url with parameters if needed
   }; 
 
-  function getAccountStatus(){
-    // do the GET request
+  var AccountStatus = function(xml){
+    this.getPaidUntil = function(){
+      var dateString = getDateString(xml, '/eveapi/result/paidUntil');
+      return parseDateString(dateString);
+    }
+    this.getCreateDate = function(){
+      var dateString = getDateString(xml, '/eveapi/result/createDate');
+      return parseDateString(dateString);
+    }
+    this.getLogonCount = function(){
+      return getNumber(xml, '/eveapi/result/logonCount');
+    }
+    this.getLogonMinutes = function(){
+      return getNumber(xml, '/eveapi/result/logonMinutes');
+    }
+    return this;
+  };
+
+  function parseDateString(dateString){
+    var dateFormat = new DateFormat('yyyy-MM-dd HH:mm:ss K z'); 
+    return dateFormat.parse(dateString);
+  }
+
+  function getDateString(xml, xPath){
+    return xml.get(xPath).text()+' UTC +0';
+  }
+
+  function getNumber(xml, xPath){
+      return new Number(parseInt(xml.get(xPath).text()));
+  }
+
+  function getAccountStatus(callback){
     var reqGet = https.get(optionsget, function(res) {
       console.log("statusCode: ", res.statusCode);
-      // uncomment it for header details
-      // console.log("headers: ", res.headers);
-
 
       res.on('data', function(d) {
         console.info('GET result:\n');
@@ -24,13 +52,21 @@ var EveApi = function(callback, keyID, vCode){
 
         var xml = libxmljs.parseXmlString(d.toString('utf-8'));
 
-        var requestInfo = (function(xml){
+        var response = (function(xml){
           this.getCurrentTime = function getCurrentTime(){
-            return xml.get('/eveapi/currentTime').text();
+            var dateString = getDateString(xml,'/eveapi/currentTime');
+            return parseDateString(dateString);
+          }
+          this.getCachedUntil = function getCachedUntil(){
+            var dateString = getDateString(xml, '/eveapi/cachedUntil');
+            return parseDateString(dateString);
+          }
+          this.getResult = function getResult(){
+            return new AccountStatus(xml);
           }
           return this;
         })(xml);
-        callback(requestInfo);
+        callback(response);
       });
     });
 
@@ -44,7 +80,7 @@ var EveApi = function(callback, keyID, vCode){
   return this;
 };
 
-exports.create = function create(callback, keyID, vCode){
- var eveApi= new EveApi(callback, keyID, vCode);
+exports.create = function create(keyID, vCode){
+ var eveApi= new EveApi(keyID, vCode);
  return eveApi;
 }

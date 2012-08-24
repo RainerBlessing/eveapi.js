@@ -9,22 +9,24 @@ exports.testAccountStatus = function(test){
       keyID = nconf.get('keyID'),
       vCode = nconf.get('vCode');
 
-  function callback(requestInfo){
-    test.ok(requestInfo.getCurrentTime!=null);
-    
-    console.info(requestInfo.getCurrentTime());
+  function callback(response){
+    var accountStatus;
 
-    test.ok(requestInfo.getCurrentTime()!=null);
-    test.ok(requestInfo.getCachedUntil()!=null);
+    test.ok(response.getCurrentTime() instanceof Date);
+    test.ok(response.getCachedUntil() instanceof Date);
 
-    test.ok(accountStatus.getPaidUntil()!=null);
-    test.ok(accountStatus.getCreateDate()!=null);
-    test.ok(accountStatus.getLogonCount()!=null);
-    test.ok(accountStatus.getLogonMinutes()!=null);
+    accountStatus = response.getResult();
+
+    test.ok(accountStatus.getPaidUntil() instanceof Date);
+    test.ok(accountStatus.getCreateDate() instanceof Date);
+    test.ok(accountStatus.getLogonCount() instanceof Number);
+    test.ok(accountStatus.getLogonMinutes() instanceof Number);
+
+    //TODO Gametime Offers
 
     test.done();
   }
 
-  eveApi=require('./eveapi').create(callback, keyID, vCode);
-  accountStatus = eveApi.getAccountStatus();
+  eveApi=require('./eveapi').create(keyID, vCode);
+  eveApi.getAccountStatus(callback);
 }
