@@ -1,0 +1,8 @@
+Eve Online API (https://support.eveonline.com/api) for node.js
+
+Required Node Modules:
+- libxmljs
+- nconf
+- nodeunit for tests
+
+Rename config.json.sample to config.json and enter your <keyID> and <vCode>.
