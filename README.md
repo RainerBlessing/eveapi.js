@@ -9,7 +9,8 @@
 ##Installation
 
 Run "npm install" to install the required modules.
-Rename config.json.sample to config.json and enter your <keyID> and <vCode>.
+Rename config.json.sample to config.json and enter your *keyID* and *vCode* if
+you want to run the tests.
 
 ##Usage
 ```js
