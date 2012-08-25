@@ -1,12 +1,12 @@
-Eve Online API (https://support.eveonline.com/api) for node.js
+#Eve Online API (https://support.eveonline.com/api) for node.js
 
-Required Node Modules:
+##Required Node Modules:
 - libxmljs
 - nconf
 - nodeunit for tests
 - dateformatjs
 
-Installation
+##Installation
 
 Run "npm install" to install the required modules.
 Rename config.json.sample to config.json and enter your <keyID> and <vCode>.
