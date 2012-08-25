@@ -14,6 +14,6 @@ you want to run the tests.
 
 ##Usage
 ```js
-var eveapi = require('./eveapi').create(keyID, vCode);
+var eveapi = require('eveapi').create(keyID, vCode);
 ```
 
