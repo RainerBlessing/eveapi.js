@@ -1,7 +1,9 @@
-var accountStatus = require('./account_status');
+var accountStatus = require('./lib/account_status');
 
 var EveApi = function(keyID, vCode){
   accountStatus.init(keyID, vCode);
+  
+  //Public Functions
   this.getAccountStatus = accountStatus.getAccountStatus;
   return this;
 };

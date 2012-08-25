@@ -1,9 +1,19 @@
 {
-  "name": "eveapi.js",
+  "name": "eveapi",
+  "author": "Rainer Blessing <rainer.blessing@gmail.com>",
+  "description": "node.js API for Eve-Online",
+  "keywords": ["eve-online", "api"],
+  "homepage": "http://github.com/RainerBlessing/eveapi.js",
   "version": "0.0.1",
   "dependencies": {
     "nconf": "*",
     "libxmljs": "*",
     "dateformatjs": "*"
-  }
+  },
+  "main": "eveapi",
+  "repository":{
+        "type": "git",
+        "url": "https://github.com/RainerBlessing/eveapi.js.git"
+    }
+
 }
