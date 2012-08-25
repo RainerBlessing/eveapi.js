@@ -27,6 +27,6 @@ exports.testAccountStatus = function(test){
     test.done();
   }
 
-  eveApi=require('./eveapi').create(keyID, vCode);
-  eveApi.getAccountStatus(callback);
+  eveapi=require('./eveapi').create(keyID, vCode);
+  eveapi.getAccountStatus(callback);
 }
