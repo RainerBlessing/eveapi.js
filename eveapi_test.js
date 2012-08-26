@@ -30,3 +30,25 @@ exports.testAccountStatus = function(test){
   eveapi=require('./eveapi').create(keyID, vCode);
   eveapi.getAccountStatus(callback);
 }
+
+exports.testAPIKeyInfo = function(test){
+  var eveapi,
+      keyID = nconf.get('keyID'),
+      vCode = nconf.get('vCode');
+
+  function callback(response){
+    var apiKeyInfo;
+
+    test.ok(response.getCurrentTime() instanceof Date);
+    test.ok(response.getCachedUntil() instanceof Date);
+
+    apiKeyInfo = response.getResult();
+
+    test.ok(apiKeyInfo.getAPIKeyInfo() !== null);
+
+    test.done();
+  }
+
+  eveapi=require('./eveapi').create(keyID, vCode);
+  eveapi.getAPIKeyInfo(callback);
+}
