@@ -38,14 +38,21 @@ exports.testAPIKeyInfo = function(test){
 
   function callback(response){
     var apiKeyInfo;
+    var rowset;
 
     test.ok(response.getCurrentTime() instanceof Date);
     test.ok(response.getCachedUntil() instanceof Date);
 
     apiKeyInfo = response.getResult();
+    test.ok(apiKeyInfo.getAPIKeyInfo().accessMask !== null);
+    test.ok(apiKeyInfo.getAPIKeyInfo().type !== null);
+    test.ok(apiKeyInfo.getAPIKeyInfo().expires !== null);
 
-    test.ok(apiKeyInfo.getAPIKeyInfo() !== null);
-
+    rowset = apiKeyInfo.getRowset();
+    test.ok(rowset['characters'][0].characterID!=null);
+    test.ok(rowset['characters'][0].characterName!=null);
+    test.ok(rowset['characters'][0].corporationID!=null);
+    test.ok(rowset['characters'][0].corporationName!=null);
     test.done();
   }
 
