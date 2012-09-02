@@ -1,4 +1,4 @@
-#API Funtions
+#API Functions
 ##Done
 ###Account
 - Account Status
