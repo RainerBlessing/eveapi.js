@@ -6,11 +6,14 @@ var EveApi = function(keyID, vCode){
   accountStatus.init(keyID, vCode);
   apiKeyInfo.init(keyID, vCode);
   characters.init(keyID, vCode);
+ 
+  this.account = {}; 
   
   //Public Functions
-  this.getAccountStatus = accountStatus.getAccountStatus;
-  this.getAPIKeyInfo = apiKeyInfo.getAPIKeyInfo;
-  this.getCharacters = characters.getCharacters;
+  this.account.getAccountStatus = accountStatus.getAccountStatus;
+  this.account.getAPIKeyInfo = apiKeyInfo.getAPIKeyInfo;
+  this.account.getCharacters = characters.getCharacters;
+
   return this;
 };
 
