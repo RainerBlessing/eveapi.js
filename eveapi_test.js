@@ -31,7 +31,7 @@ exports.testAccountStatus = function(test){
   eveapi.getAccountStatus(callback);
 }
 
-exports.testAPIKeyInfo = function(test){
+exports.testCharacters = function(test){
   var eveapi,
       keyID = nconf.get('keyID'),
       vCode = nconf.get('vCode');
@@ -44,9 +44,9 @@ exports.testAPIKeyInfo = function(test){
     test.ok(response.getCachedUntil() instanceof Date);
 
     apiKeyInfo = response.getResult();
-    test.ok(apiKeyInfo.getAPIKeyInfo().accessMask !== null);
-    test.ok(apiKeyInfo.getAPIKeyInfo().type !== null);
-    test.ok(apiKeyInfo.getAPIKeyInfo().expires !== null);
+    test.ok(apiKeyInfo.getCharacters().accessMask !== null);
+    test.ok(apiKeyInfo.getCharacters().type !== null);
+    test.ok(apiKeyInfo.getCharacters().expires !== null);
 
     rowset = apiKeyInfo.getRowset();
     test.ok(rowset['characters'][0].characterID!=null);
@@ -57,5 +57,30 @@ exports.testAPIKeyInfo = function(test){
   }
 
   eveapi=require('./eveapi').create(keyID, vCode);
-  eveapi.getAPIKeyInfo(callback);
+  eveapi.getCharacters(callback);
+}
+exports.testCharacters = function(test){
+  var eveapi,
+      keyID = nconf.get('keyID'),
+      vCode = nconf.get('vCode');
+
+  function callback(response){
+    var apiKeyInfo;
+    var rowset;
+
+    test.ok(response.getCurrentTime() instanceof Date);
+    test.ok(response.getCachedUntil() instanceof Date);
+
+    result = response.getResult();
+
+    rowset = result.getRowset();
+    test.ok(rowset['characters'][0].characterID!=null);
+    test.ok(rowset['characters'][0].name!=null);
+    test.ok(rowset['characters'][0].corporationID!=null);
+    test.ok(rowset['characters'][0].corporationName!=null);
+    test.done();
+  }
+
+  eveapi=require('./eveapi').create(keyID, vCode);
+  eveapi.getCharacters(callback);
 }
