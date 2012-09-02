@@ -1,5 +1,6 @@
 {
   "keyID": "<replace with ID from https://support.eveonline.com/api>", 
-  "vCode": "<replace with Verification Code from https://support.eveonline.com/api>"
+  "vCode": "<replace with Verification Code from https://support.eveonline.com/api>",
+  "characterID": "<replace with characterID from the char/Characters call>"
 }
 

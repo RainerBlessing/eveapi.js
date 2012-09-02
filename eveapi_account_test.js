@@ -64,7 +64,7 @@ exports.account = {
   testCharacters: function(test){
 
     function callback(response){
-      var apiKeyInfo;
+      var result;
       var rowset;
 
       test.ok(response.getCurrentTime() instanceof Date);

@@ -1,10 +1,11 @@
 #API Functions
 ##Done
 ###Account
-- Account Status
-- API Key Info
+- AccountStatus
+- APIKeyInfo
 - Characters (List of)
-
+###Character
+- AccountBalance
 ##To Do
 ###Character
 ###Corporation
