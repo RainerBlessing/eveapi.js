@@ -16,4 +16,4 @@ you want to run the tests.
 ```js
 var eveapi = require('eveapi').create(keyID, vCode);
 ```
-
+[api_functions.md](/RainerBlessing/eveapi.js/api_functions.md) contains a list of implemented api functions.
