@@ -18,8 +18,6 @@ exports.account = {
   testAccountBalance: function(test){
  
     function callback(response){
-      var result;
-      var rowset;
       var accountBalance;
       var account;
  
@@ -44,8 +42,6 @@ exports.account = {
   testAssetList: function(test){
  
     function callback(response){
-      var result;
-      var rowset;
       var assetList;
       var asset;
  
@@ -61,10 +57,37 @@ exports.account = {
       content = asset.getContent("150354709");
       test.ok(content!=null);
  
+      asset = assetList.getAsset("150212063");
+      test.ok(asset!=null);
       test.done();
     }
 
     this.eveapi.character.getAssetList(callback, this.characterID);
+  },
+
+  testUpcomingCalendarEvents: function(test){
+
+    function callback(response){
+      var upcomingCalendarEvents;
+      var upcomingCalendarEvent;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+
+      upcomingCalendarEvents = response.getResult();
+
+      upcomingCalendarEvent = upcomingCalendarEvents.getUpcomingEvent('93264');
+      test.ok(upcomingCalendarEvent!==null);
+
+      upcomingCalendarEvents.each(function(upcomingCalendarEventLoop){
+        test.ok(upcomingCalendarEvent===upcomingCalendarEventLoop);
+      });
+
+      test.done();
+    }
+
+    this.eveapi.character.getUpcomingCalendarEvents(callback, this.characterID);
+
   }
 } 
  

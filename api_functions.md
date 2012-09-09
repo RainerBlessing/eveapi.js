@@ -8,6 +8,7 @@
 ###Character
 - AccountBalance
 - AssetList
+- UpcomingCalendarEvents
 
 ##To Do
 ###Character

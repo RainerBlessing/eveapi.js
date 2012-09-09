@@ -3,6 +3,7 @@ var apiKeyInfo = require('./lib/account/api_key_info');
 var characters = require('./lib/account/characters');
 var accountBalance = require('./lib/character/account_balance');
 var assetList = require('./lib/character/asset_list');
+var upcomingCalendarEvents = require('./lib/character/upcoming_calendar_events');
 
 var EveApi = function(keyID, vCode){
   var https = require('./lib/https_stub');
@@ -11,6 +12,7 @@ var EveApi = function(keyID, vCode){
   characters.init(keyID, vCode, https);
   accountBalance.init(keyID, vCode, https);
   assetList.init(keyID, vCode, https);
+  upcomingCalendarEvents.init(keyID, vCode, https);
  
   this.account = {}; 
   this.character = {}; 
@@ -22,6 +24,7 @@ var EveApi = function(keyID, vCode){
 
   this.character.getAccountBalance = accountBalance.getAccountBalance;
   this.character.getAssetList = assetList.getAssetList;
+  this.character.getUpcomingCalendarEvents = upcomingCalendarEvents.getUpcomingCalendarEvents;
 
   return this;
 };
