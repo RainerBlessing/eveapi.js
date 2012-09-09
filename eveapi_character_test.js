@@ -20,21 +20,51 @@ exports.account = {
     function callback(response){
       var result;
       var rowset;
+      var accountBalance;
+      var account;
  
       test.ok(response.getCurrentTime() instanceof Date);
       test.ok(response.getCachedUntil() instanceof Date);
  
-      result = response.getResult();
+      accountBalance = response.getResult();
  
-      rowset = result.getRowset();
-      test.ok(rowset['accounts'][0].accountID!=null);
-      test.ok(rowset['accounts'][0].accountKey!=null);
-      test.ok(rowset['accounts'][0].balance!=null);
- 
+      account = accountBalance.getAccount(4807144);
+      test.ok(account.accountKey === "1000");
+      test.ok(account.balance === "209127823.31");
+
+      accountBalance.each(function(accountLoop){
+        test.ok(account === accountLoop);
+      }); 
       test.done();
     }
 
     this.eveapi.character.getAccountBalance(callback, this.characterID);
+  },
+
+  testAssetList: function(test){
+ 
+    function callback(response){
+      var result;
+      var rowset;
+      var assetList;
+      var asset;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      assetList = response.getResult();
+      asset = assetList.getAsset("150354641");
+      test.ok(asset!=null);
+      assetList.each(function(assetLoop){
+        test.ok(assetLoop!=null);
+      });
+      content = asset.getContent("150354709");
+      test.ok(content!=null);
+ 
+      test.done();
+    }
+
+    this.eveapi.character.getAssetList(callback, this.characterID);
   }
 } 
  

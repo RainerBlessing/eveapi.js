@@ -1,86 +1,95 @@
 var nconf = require('nconf');
-nconf.argv()
-     .env()
-     .file({ file: 'config.json' });
+  nconf.argv()
+.env()
+  .file({ file: 'config.json' });
 
-exports.account = {
+  exports.account = {
 
-  setUp: function(callback){
-    var eveapi,
-        keyID = nconf.get('keyID'),
-        vCode = nconf.get('vCode');
-    this.eveapi = eveapi=require('./eveapi').create(keyID, vCode);
-    callback();
-  },
+    setUp: function(callback){
+             var eveapi,
+             keyID = nconf.get('keyID'),
+             vCode = nconf.get('vCode');
+             this.eveapi = eveapi=require('./eveapi').create(keyID, vCode);
+             callback();
+           },
 
-  testAccountStatus: function(test){
- 
-      function callback(response){
-      var accountStatus;
- 
-      test.ok(response.getCurrentTime() instanceof Date);
-      test.ok(response.getCachedUntil() instanceof Date);
- 
-      accountStatus = response.getResult();
- 
-      test.ok(accountStatus.getPaidUntil() instanceof Date);
-      test.ok(accountStatus.getCreateDate() instanceof Date);
-      test.ok(accountStatus.getLogonCount() instanceof Number);
-      test.ok(accountStatus.getLogonMinutes() instanceof Number);
- 
-      //TODO Gametime Offers
- 
-      test.done();
-    }
- 
-    this.eveapi.account.getAccountStatus(callback);
-  },
+    testAccountStatus: function(test){
 
-  testAPIKeyInfo: function(test){
+                         function callback(response){
+                           var accountStatus;
 
-   function callback(response){
-     var apiKeyInfo;
-     var rowset;
+                           test.ok(response.getCurrentTime() instanceof Date);
+                           test.ok(response.getCachedUntil() instanceof Date);
 
-     test.ok(response.getCurrentTime() instanceof Date);
-     test.ok(response.getCachedUntil() instanceof Date);
+                           accountStatus = response.getResult();
 
-     apiKeyInfo = response.getResult();
-     test.ok(apiKeyInfo.getAPIKeyInfo().accessMask !== null);
-     test.ok(apiKeyInfo.getAPIKeyInfo().type !== null);
-     test.ok(apiKeyInfo.getAPIKeyInfo().expires !== null);
+                           test.ok(accountStatus.getPaidUntil() instanceof Date);
+                           test.ok(accountStatus.getCreateDate() instanceof Date);
+                           test.ok(accountStatus.getLogonCount() instanceof Number);
+                           test.ok(accountStatus.getLogonMinutes() instanceof Number);
 
-     rowset = apiKeyInfo.getRowset();
-     test.ok(rowset['characters'][0].characterID!=null);
-     test.ok(rowset['characters'][0].characterName!=null);
-     test.ok(rowset['characters'][0].corporationID!=null);
-     test.ok(rowset['characters'][0].corporationName!=null);
-     test.done();
-   }
+                           //TODO Gametime Offers
 
-   this.eveapi.account.getAPIKeyInfo(callback);
-  },
+                           test.done();
+                         }
 
-  testCharacters: function(test){
+                         this.eveapi.account.getAccountStatus(callback);
+                       },
 
-    function callback(response){
-      var result;
-      var rowset;
+    testAPIKeyInfo: function(test){
 
-      test.ok(response.getCurrentTime() instanceof Date);
-      test.ok(response.getCachedUntil() instanceof Date);
+                      function callback(response){
+                        var apiKeyInfo;
+                        var character;
 
-      result = response.getResult();
+                        test.ok(response.getCurrentTime() instanceof Date);
+                        test.ok(response.getCachedUntil() instanceof Date);
 
-      rowset = result.getRowset();
-      test.ok(rowset['characters'][0].characterID!=null);
-      test.ok(rowset['characters'][0].name!=null);
-      test.ok(rowset['characters'][0].corporationID!=null);
-      test.ok(rowset['characters'][0].corporationName!=null);
-      test.done();
-    }
+                        apiKeyInfo = response.getResult();
+                        test.ok(apiKeyInfo.getAPIKeyInfo().accessMask !== null);
+                        test.ok(apiKeyInfo.getAPIKeyInfo().type !== null);
+                        test.ok(apiKeyInfo.getAPIKeyInfo().expires !== null);
 
-    this.eveapi.account.getCharacters(callback);
-  }
-} 
- 
+                        character = apiKeyInfo.getCharacter(898901870); 
+                        test.ok(character.characterID!=null);
+                        test.ok(character.characterName!=null);
+                        test.ok(character.corporationID!=null);
+                        test.ok(character.corporationName!=null);
+
+                        apiKeyInfo.each(function(characterLoop){
+                          test.ok(characterLoop === character); 
+                        });
+
+                        test.done();
+                      }
+
+                      this.eveapi.account.getAPIKeyInfo(callback);
+                    },
+
+    testCharacters: function(test){
+
+                      function callback(response){
+                        var apiKeyInfo;
+                        var character;
+
+                        test.ok(response.getCurrentTime() instanceof Date);
+                        test.ok(response.getCachedUntil() instanceof Date);
+
+                        apiKeyInfo = response.getResult();
+                        character = apiKeyInfo.getCharacter(1365215823); 
+                        test.ok(character.characterID!=null);
+                        test.ok(character.name!=null);
+                        test.ok(character.corporationID!=null);
+                        test.ok(character.corporationName!=null);
+
+                        apiKeyInfo.each(function(characterLoop){
+                          test.ok(characterLoop === character); 
+                        });
+
+                        test.done();
+                      }
+
+                      this.eveapi.account.getCharacters(callback);
+                    }
+  } 
+
