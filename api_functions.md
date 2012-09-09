@@ -4,8 +4,11 @@
 - AccountStatus
 - APIKeyInfo
 - Characters (List of)
+
 ###Character
 - AccountBalance
+- AssetList
+
 ##To Do
 ###Character
 ###Corporation
