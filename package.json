@@ -9,7 +9,8 @@
     "nconf": "*",
     "libxmljs": "*",
     "dateformatjs": "*",
-    "inflect": "*"
+    "inflect": "*",
+    "readdirp": "*",
   },
   "main": "eveapi",
   "repository":{

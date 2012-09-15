@@ -9,8 +9,7 @@ var nconf = require('nconf');
              var eveapi,
              keyID = nconf.get('keyID'),
              vCode = nconf.get('vCode');
-             this.eveapi = eveapi=require('./eveapi').create(keyID, vCode);
-             callback();
+             this.eveapi = eveapi=require('./eveapi').create(callback,keyID, vCode);
            },
 
     testAccountStatus: function(test){

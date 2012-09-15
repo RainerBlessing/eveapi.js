@@ -9,10 +9,9 @@ exports.account = {
     var eveapi,
         keyID = nconf.get('keyID'),
         vCode = nconf.get('vCode');
-    this.eveapi = eveapi=require('./eveapi').create(keyID, vCode);
+    this.eveapi = eveapi=require('./eveapi').create(callback, keyID, vCode);
 
     this.characterID = nconf.get('characterID');
-    callback();
   },
 
   testAccountBalance: function(test){
