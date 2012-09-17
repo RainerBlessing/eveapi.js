@@ -48,4 +48,3 @@
   </result>
   <cachedUntil>2007-12-02 16:55:07</cachedUntil>
 </eveapi>
-
