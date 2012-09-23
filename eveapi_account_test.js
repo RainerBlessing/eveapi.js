@@ -48,14 +48,14 @@ var nconf = require('nconf');
                         test.ok(apiKeyInfo.getAPIKeyInfo().accessMask !== null);
                         test.ok(apiKeyInfo.getAPIKeyInfo().type !== null);
                         test.ok(apiKeyInfo.getAPIKeyInfo().expires !== null);
-
-                        character = apiKeyInfo.getCharacter(898901870); 
+console.log(apiKeyInfo.getKey());
+                        character = apiKeyInfo.getKey().getCharacter(898901870); 
                         test.ok(character.characterID!=null);
                         test.ok(character.characterName!=null);
                         test.ok(character.corporationID!=null);
                         test.ok(character.corporationName!=null);
 
-                        apiKeyInfo.each(function(characterLoop){
+                        apiKeyInfo.getKey().each(function(characterLoop){
                           test.ok(characterLoop === character); 
                         });
 

@@ -11,6 +11,7 @@
 - UpcomingCalendarEvents
 - CalendarEventAttendees
 - CharacterSheet
+- ContactList
 
 
 ##To Do

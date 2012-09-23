@@ -13,7 +13,6 @@ exports.account = {
 
     this.characterID = nconf.get('characterID');
   },
-
   testAccountBalance: function(test){
  
     function callback(response){
@@ -108,28 +107,44 @@ exports.account = {
     this.eveapi.character.getCalendarEventAttendees(callback, this.eventID, this.characterID);
 
   },
-
   testCharacterSheet: function(test){
 
     function callback(response){
-      var characterSheet;
+      var result;
       var characterID;
       var attributeEnhancers;
 
       test.ok(response.getCurrentTime() instanceof Date);
       test.ok(response.getCachedUntil() instanceof Date);
 
-      characterSheet = response.getResult();
-      characterID = characterSheet.getCharacterID();
+      result = response.getResult();
+      characterID = result.getCharacterID();
       test.ok(characterID=='150337897');
-      charismaBonus = characterSheet.getAttributeEnhancers().getCharismaBonus();
+      charismaBonus = result.getAttributeEnhancers().getCharismaBonus();
       test.ok(charismaBonus.getAugmentatorValue()=='1');
-
 
       test.done();
     }
     this.eveapi.character.getCharacterSheet(callback, this.characterID);
 
+  },
+  testContactList: function(test){
+ 
+    function callback(response){
+      var contact;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      contact = result.getContactList("797400947");
+      test.ok(contact.contactName==='CCP Garthagk');
+      contact = result.getAllianceContactList("797400947");
+      test.ok(contact.contactName==='CCP Garthagk');
+      test.done();
+    }
+
+    this.eveapi.character.getContactList(callback, this.characterID);
   }
 } 
  
