@@ -9,6 +9,9 @@
 - AccountBalance
 - AssetList
 - UpcomingCalendarEvents
+- CalendarEventAttendees
+- CharacterSheet
+
 
 ##To Do
 ###Character

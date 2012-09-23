@@ -87,6 +87,49 @@ exports.account = {
 
     this.eveapi.character.getUpcomingCalendarEvents(callback, this.characterID);
 
+  },
+
+  testCalendarEventAttendees: function(test){
+
+    function callback(response){
+      var calendarEventAttendees;
+      var calendarEventAttendee;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+
+      calendarEventAttendees = response.getResult();
+
+      calendarEventAttendee = calendarEventAttendees.getEventAttendee('192837645');
+      test.ok(calendarEventAttendee!==null);
+
+      test.done();
+    }
+    this.eveapi.character.getCalendarEventAttendees(callback, this.eventID, this.characterID);
+
+  },
+
+  testCharacterSheet: function(test){
+
+    function callback(response){
+      var characterSheet;
+      var characterID;
+      var attributeEnhancers;
+
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+
+      characterSheet = response.getResult();
+      characterID = characterSheet.getCharacterID();
+      test.ok(characterID=='150337897');
+      charismaBonus = characterSheet.getAttributeEnhancers().getCharismaBonus();
+      test.ok(charismaBonus.getAugmentatorValue()=='1');
+
+
+      test.done();
+    }
+    this.eveapi.character.getCharacterSheet(callback, this.characterID);
+
   }
 } 
  
