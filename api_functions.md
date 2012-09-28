@@ -14,6 +14,7 @@
 - ContactList
 - ContactNotification
 - Contracts
+- ContractItems
 
 ##To Do
 ###Character

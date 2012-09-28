@@ -171,13 +171,28 @@ exports.account = {
       test.ok(response.getCachedUntil() instanceof Date);
  
       result = response.getResult();
-      console.log(result);
       contract = result.getContractList("12345");
       test.ok(contract.issuerID =="54321");
       test.done();
     }
 
     this.eveapi.character.getContracts(callback, this.characterID);
+  },
+  testContractItems: function(test){
+ 
+    function callback(response){
+      var itemList;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      itemList = result.getItemList("600515136");
+      test.ok(itemList.quantity =="1");
+      test.done();
+    }
+
+    this.eveapi.character.getContractItems(callback, this.characterID, '12345');
   }
 } 
  
