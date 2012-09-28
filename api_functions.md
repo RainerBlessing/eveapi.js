@@ -13,6 +13,7 @@
 - CharacterSheet
 - ContactList
 - ContactNotification
+- Contracts
 
 ##To Do
 ###Character

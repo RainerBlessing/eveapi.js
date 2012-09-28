@@ -156,12 +156,28 @@ exports.account = {
  
       result = response.getResult();
       contactNotification = result.getContactNotification("308734131");
-      console.log(contactNotification);
       test.ok(contactNotification.messageData =="level: 10\nmessage: Hi, I want to social network with you!\n");
       test.done();
     }
 
     this.eveapi.character.getContactNotifications(callback, this.characterID);
+  },
+  testContracts: function(test){
+ 
+    function callback(response){
+      var contract;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      console.log(result);
+      contract = result.getContractList("12345");
+      test.ok(contract.issuerID =="54321");
+      test.done();
+    }
+
+    this.eveapi.character.getContracts(callback, this.characterID);
   }
 } 
  
