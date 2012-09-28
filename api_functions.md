@@ -12,7 +12,7 @@
 - CalendarEventAttendees
 - CharacterSheet
 - ContactList
-
+- ContactNotification
 
 ##To Do
 ###Character

@@ -145,6 +145,23 @@ exports.account = {
     }
 
     this.eveapi.character.getContactList(callback, this.characterID);
+  },
+  testContactNotifications: function(test){
+ 
+    function callback(response){
+      var contactNotification;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      contactNotification = result.getContactNotification("308734131");
+      console.log(contactNotification);
+      test.ok(contactNotification.messageData =="level: 10\nmessage: Hi, I want to social network with you!\n");
+      test.done();
+    }
+
+    this.eveapi.character.getContactNotifications(callback, this.characterID);
   }
 } 
  
