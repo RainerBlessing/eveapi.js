@@ -8,7 +8,7 @@
                 corporationName="Center for Advanced Studies" allianceID="0"
                 allianceName="" factionID="0" factionName=""
                 damageTaken="6378" shipTypeID="12003" />
-        <rowset name="attackers" columns="characterID,characterName,corporationID,corporationName,allianceID,allianceName,
+        <rowset name="attackers" key="characterID" columns="characterID,characterName,corporationID,corporationName,allianceID,allianceName,
                 factionID,factionName,securityStatus,damageDone,finalBlow,weaponTypeID,shipTypeID">
           <row characterID="0" characterName="" corporationID="1000127" corporationName="Guristas"
                allianceID="0" allianceName="" factionID="0" factionName="" securityStatus="0" 
@@ -17,14 +17,14 @@
                allianceID="0" allianceName="" securityStatus="0" damageDone="65" finalBlow="0"
                weaponTypeID="0" shipTypeID="16632" />
         </rowset>
-        <rowset name="items" columns="typeID,flag,qtyDropped,qtyDestroyed,singleton" />
+        <rowset name="items" key="typeID" columns="typeID,flag,qtyDropped,qtyDestroyed,singleton" />
       </row>
       <row killID="62" solarSystemID="30000848" killTime="2007-11-15 14:48:00" moonID="0">
         <victim characterID="150340823" characterName="Dieinafire" corporationID="1000169"
                 corporationName="Center for Advanced Studies" allianceID="0"
                 allianceName="" factionID="0" factionName=""
                 damageTaken="455" shipTypeID="606" />
-        <rowset name="attackers" columns="characterID,characterName,corporationID,corporationName,allianceID,allianceName,
+        <rowset name="attackers" key="characterID" columns="characterID,characterName,corporationID,corporationName,allianceID,allianceName,
                 factionID,factionName,securityStatus,damageDone,finalBlow,weaponTypeID,shipTypeID">
           <row characterID="0" characterName="" corporationID="1000127" corporationName="Guristas"
                allianceID="0" allianceName="" factionID="0" factionName="" securityStatus="0" 
@@ -34,10 +34,10 @@
                allianceName="Margaritaville" securityStatus="0.3" damageDone="0"
                finalBlow="0" weaponTypeID="25715" shipTypeID="24698" />
         </rowset>
-        <rowset name="items" columns="typeID,flag,qtyDropped,qtyDestroyed,singleton">
+        <rowset name="items" key="typeID" columns="typeID,flag,qtyDropped,qtyDestroyed,singleton">
           <row typeID="3520" flag="0" qtyDropped="3" qtyDestroyed="1" singleton="0" />
           <row typeID="12076" flag="0" qtyDropped="0" qtyDestroyed="1" singleton="0">
-            <rowset name="items" columns="typeID,flag,qtyDropped,qtyDestroyed,singleton">
+            <rowset name="items" key="typeID" columns="typeID,flag,qtyDropped,qtyDestroyed,singleton">
               <row typeID="12259" flag="0" qtyDropped="0" qtyDestroyed="1" singleton="0" />
               <row typeID="1236" flag="0" qtyDropped="2" qtyDestroyed="1" singleton="0" />
               <row typeID="2032" flag="0" qtyDropped="1" qtyDestroyed="1" singleton="0" />

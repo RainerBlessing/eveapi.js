@@ -129,6 +129,7 @@ exports.account = {
     this.eveapi.character.getCharacterSheet(callback, this.characterID);
 
   },
+
   testContactList: function(test){
  
     function callback(response){
@@ -147,6 +148,7 @@ exports.account = {
 
     this.eveapi.character.getContactList(callback, this.characterID);
   },
+
   testContactNotifications: function(test){
  
     function callback(response){
@@ -163,6 +165,7 @@ exports.account = {
 
     this.eveapi.character.getContactNotifications(callback, this.characterID);
   },
+
   testContracts: function(test){
  
     function callback(response){
@@ -179,6 +182,7 @@ exports.account = {
 
     this.eveapi.character.getContracts(callback, this.characterID);
   },
+
   testContractItems: function(test){
  
     function callback(response){
@@ -195,7 +199,7 @@ exports.account = {
 
     this.eveapi.character.getContractItems(callback, this.characterID, '12345');
   },
-/*
+
   testContractBids: function(test){
  
     function callback(response){
@@ -210,7 +214,7 @@ exports.account = {
 
     this.eveapi.character.getContractBids(callback, this.characterID);
   },
-*/
+
   testFactionalWarfareStats: function(test){
  
     function callback(response){
@@ -240,7 +244,7 @@ exports.account = {
 
     this.eveapi.character.getIndustryJobs(callback, this.characterID);
   },
-/*
+
   testKillLog: function(test){
  
     function callback(response){
@@ -255,6 +259,7 @@ exports.account = {
 
     this.eveapi.character.getKillLog(callback, this.characterID);
   },
+
   testLocations: function(test){
  
     function callback(response){
@@ -269,7 +274,7 @@ exports.account = {
 
     this.eveapi.character.getLocations(callback, this.characterID);
   },
-
+/*
   testMailBodies: function(test){
  
     function callback(response){
