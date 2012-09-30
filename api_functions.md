@@ -15,9 +15,27 @@
 - ContactNotification
 - Contracts
 - ContractItems
+- ContractBids
+- Factional Warfare Stats
+- Industry Jobs
+- Kill Log
+- Locations
+- Mail Bodies
+- Mailing Lists
+- Mail Messages
+- Market Orders
+- Medals
+- Notifications
+- NotificationTexts
+- Research
+- Skill In Training
+- Skill Queue
+- Standings
+- Upcoming Calendar Events
+- Wallet Journal
+- Wallet Transactions
 
 ##To Do
-###Character
 ###Corporation
 ###Eve
 ###Map
