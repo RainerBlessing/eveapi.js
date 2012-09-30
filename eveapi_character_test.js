@@ -13,6 +13,7 @@ exports.account = {
 
     this.characterID = nconf.get('characterID');
   },
+
   testAccountBalance: function(test){
  
     function callback(response){
@@ -193,6 +194,290 @@ exports.account = {
     }
 
     this.eveapi.character.getContractItems(callback, this.characterID, '12345');
+  },
+/*
+  testContractBids: function(test){
+ 
+    function callback(response){
+      var contract_bids;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      test.done();
+    }
+
+    this.eveapi.character.getContractBids(callback, this.characterID);
+  },
+*/
+  testFactionalWarfareStats: function(test){
+ 
+    function callback(response){
+      var factional_warfare_stats;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      test.done();
+    }
+
+    this.eveapi.character.getFactionalWarfareStats(callback, this.characterID);
+  },
+
+  testIndustryJobs: function(test){
+ 
+    function callback(response){
+      var industry_jobs;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      test.done();
+    }
+
+    this.eveapi.character.getIndustryJobs(callback, this.characterID);
+  },
+/*
+  testKillLog: function(test){
+ 
+    function callback(response){
+      var kill_log;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      test.done();
+    }
+
+    this.eveapi.character.getKillLog(callback, this.characterID);
+  },
+  testLocations: function(test){
+ 
+    function callback(response){
+      var locations;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      test.done();
+    }
+
+    this.eveapi.character.getLocations(callback, this.characterID);
+  },
+
+  testMailBodies: function(test){
+ 
+    function callback(response){
+      var mail_bodies;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      test.done();
+    }
+
+    this.eveapi.character.getMailBodies(callback, this.characterID);
+  },
+*/
+  testMailingLists: function(test){
+ 
+    function callback(response){
+      var mailing_lists;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      test.done();
+    }
+
+    this.eveapi.character.getMailingLists(callback, this.characterID);
+  },
+
+  testMailMessages: function(test){
+ 
+    function callback(response){
+      var mail_messages;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      test.done();
+    }
+
+    this.eveapi.character.getMailMessages(callback, this.characterID);
+  },
+
+  testMarketOrders: function(test){
+ 
+    function callback(response){
+      var market_orders;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      test.done();
+    }
+
+    this.eveapi.character.getMarketOrders(callback, this.characterID);
+  },
+
+  testMedals: function(test){
+ 
+    function callback(response){
+      var medals;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      test.done();
+    }
+
+    this.eveapi.character.getMedals(callback, this.characterID);
+  },
+
+  testNotifications: function(test){
+ 
+    function callback(response){
+      var notifications;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      test.done();
+    }
+
+    this.eveapi.character.getNotifications(callback, this.characterID);
+  },
+/*
+  testNotificationTexts: function(test){
+ 
+    function callback(response){
+      var notification_texts;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      test.done();
+    }
+
+    this.eveapi.character.getNotificationTexts(callback, this.characterID);
+  },
+*/
+  testResearch: function(test){
+ 
+    function callback(response){
+      var research;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      test.done();
+    }
+
+    this.eveapi.character.getResearch(callback, this.characterID);
+  },
+
+  testSkillInTraining: function(test){
+ 
+    function callback(response){
+      var skill_in_training;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      test.done();
+    }
+
+    this.eveapi.character.getSkillInTraining(callback, this.characterID);
+  },
+
+  testSkillQueue: function(test){
+ 
+    function callback(response){
+      var skill_queue;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      test.done();
+    }
+
+    this.eveapi.character.getSkillQueue(callback, this.characterID);
+  },
+
+  testStandings: function(test){
+ 
+    function callback(response){
+      var standings;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      test.done();
+    }
+
+    this.eveapi.character.getStandings(callback, this.characterID);
+  },
+
+  testUpcomingCalendarEvents: function(test){
+ 
+    function callback(response){
+      var upcoming_calendar_events;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      test.done();
+    }
+
+    this.eveapi.character.getUpcomingCalendarEvents(callback, this.characterID);
+  },
+
+  testWalletJournal: function(test){
+ 
+    function callback(response){
+      var wallet_journal;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      test.done();
+    }
+
+    this.eveapi.character.getWalletJournal(callback, this.characterID);
+  },
+
+  testWalletTransactions: function(test){
+ 
+    function callback(response){
+      var wallet_transactions;
+ 
+      test.ok(response.getCurrentTime() instanceof Date);
+      test.ok(response.getCachedUntil() instanceof Date);
+ 
+      result = response.getResult();
+      test.done();
+    }
+
+    this.eveapi.character.getWalletTransactions(callback, this.characterID);
   }
 } 
  
