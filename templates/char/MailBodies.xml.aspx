@@ -10,12 +10,4 @@
   </result>
   <cachedUntil>2020-10-02 21:31:58</cachedUntil>
 </eveapi>
- <?xml version="1.0" encoding="UTF-8" ?> 
-<eveapi version="2">
-  <currentTime>2010-10-05 21:31:58</currentTime> 
-  <result>
-    <rowset name="messages" key="messageID" columns="messageID" /> 
-    <missingMessageIDs>297023723</missingMessageIDs> 
-  </result>
-  <cachedUntil>2020-10-02 21:31:58</cachedUntil> 
-</eveapi>
+

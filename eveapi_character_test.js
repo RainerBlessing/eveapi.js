@@ -274,7 +274,7 @@ exports.account = {
 
     this.eveapi.character.getLocations(callback, this.characterID);
   },
-/*
+
   testMailBodies: function(test){
  
     function callback(response){
@@ -289,7 +289,7 @@ exports.account = {
 
     this.eveapi.character.getMailBodies(callback, this.characterID);
   },
-*/
+
   testMailingLists: function(test){
  
     function callback(response){
@@ -364,7 +364,7 @@ exports.account = {
 
     this.eveapi.character.getNotifications(callback, this.characterID);
   },
-/*
+
   testNotificationTexts: function(test){
  
     function callback(response){
@@ -379,7 +379,7 @@ exports.account = {
 
     this.eveapi.character.getNotificationTexts(callback, this.characterID);
   },
-*/
+
   testResearch: function(test){
  
     function callback(response){
