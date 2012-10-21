@@ -1,4 +1,4 @@
-#Eve Online API (https://support.eveonline.com/api) for node.js
+#Eve Online API (http://wiki.eveonline.com/en/wiki/EVE_API_Functions) for node.js
 
 ##Required Node Modules:
 - libxmljs
